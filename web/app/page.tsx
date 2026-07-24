@@ -1,8 +1,9 @@
+import HomeHero from "@/components/sections/home/HomeHero";
 
 export default function Home() {
   return (
-    <section>
-      <h1>Hero Section</h1>
-    </section>
+    <main className="overflow-x-hidden">
+      <HomeHero />
+    </main>
   );
 }
