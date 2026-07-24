@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useId, useMemo, useState } from "react";
+import { KeyboardEvent, useEffect, useId, useMemo, useRef, useState } from "react";
 
 type KpSelectOption = {
   label: string;
@@ -12,7 +12,9 @@ type KpSelectProps = {
   name: string;
   options: KpSelectOption[];
   defaultValue?: string;
+  required?: boolean;
   placeholder?: string;
+  errorMessage?: string;
 };
 
 export function KpSelect({
@@ -20,10 +22,15 @@ export function KpSelect({
   name,
   options,
   defaultValue,
+  required = false,
   placeholder = "Select an option",
+  errorMessage = `${label} is required.`,
 }: KpSelectProps) {
   const generatedId = useId();
+  const fieldRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [selectedValue, setSelectedValue] = useState(defaultValue ?? "");
 
   const selectedOption = useMemo(
@@ -38,6 +45,7 @@ export function KpSelect({
 
   function selectOption(option: KpSelectOption) {
     setSelectedValue(option.value);
+    setHasError(false);
     setIsOpen(false);
   }
 
@@ -62,14 +70,45 @@ export function KpSelect({
     const direction = event.key === "ArrowDown" ? 1 : -1;
     const nextIndex = (activeIndex + direction + options.length) % options.length;
     setSelectedValue(options[nextIndex].value);
+    setHasError(false);
     setIsOpen(true);
   }
 
+  useEffect(() => {
+    const form = fieldRef.current?.closest("form");
+
+    if (!form || !required) {
+      return;
+    }
+
+    function validateSelect(event: Event) {
+      if (selectedValue) {
+        setHasError(false);
+        return;
+      }
+
+      event.preventDefault();
+      setHasError(true);
+      triggerRef.current?.focus();
+    }
+
+    form.addEventListener("submit", validateSelect);
+
+    return () => {
+      form.removeEventListener("submit", validateSelect);
+    };
+  }, [required, selectedValue]);
+
   return (
-    <div className="kp-select-field">
+    <div className="kp-select-field" ref={fieldRef}>
       <input type="hidden" name={name} value={selectedValue} />
       <span className="kp-select-label" id={`${generatedId}-label`}>
         {label}
+        {required ? (
+          <span className="kp-required-mark" aria-hidden="true">
+            *
+          </span>
+        ) : null}
       </span>
 
       <div className="kp-select">
@@ -77,10 +116,13 @@ export function KpSelect({
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           aria-labelledby={`${generatedId}-label ${generatedId}-value`}
+          aria-describedby={hasError ? `${generatedId}-error` : undefined}
           className="kp-select-trigger"
+          data-invalid={hasError}
           onBlur={() => window.setTimeout(() => setIsOpen(false), 120)}
           onClick={() => setIsOpen((current) => !current)}
           onKeyDown={handleKeyDown}
+          ref={triggerRef}
           type="button"
         >
           <span
@@ -122,6 +164,11 @@ export function KpSelect({
           </div>
         ) : null}
       </div>
+      {hasError ? (
+        <span className="kp-select-error" id={`${generatedId}-error`}>
+          {errorMessage}
+        </span>
+      ) : null}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import KpInput from "@/components/ui/kp-input";
 import { KpSelect } from "@/components/ui/kp-select";
 
 const projectOptions = [
@@ -40,9 +41,6 @@ const siteVisitOptions = [
   { label: "Not yet", value: "not-yet" },
 ];
 
-const inputClass =
-  "min-h-12 rounded-2xl border-2 border-kp-graphite bg-kp-porcelain px-4 py-3 font-bold text-kp-graphite outline-none transition-colors duration-200 placeholder:text-kp-stone-taupe focus:border-kp-ember";
-
 function MainEnquiry() {
   return (
     <section className="bg-kp-limestone py-24 md:py-32" id="contact">
@@ -66,37 +64,48 @@ function MainEnquiry() {
 
         <form className="col-span-7 grid gap-5 rounded-3xl border border-kp-mushroom-mist bg-kp-porcelain p-6 shadow-[var(--kp-shadow-float)] md:p-8 max-[900px]:col-span-12">
           <div className="grid grid-cols-2 gap-4 max-[680px]:grid-cols-1">
-            <label className="grid gap-2 text-sm font-extrabold text-kp-graphite">
-              Full name
-              <input className={inputClass} name="name" placeholder="Your name" />
-            </label>
-            <label className="grid gap-2 text-sm font-extrabold text-kp-graphite">
-              WhatsApp number
-              <input className={inputClass} name="whatsapp" placeholder="03XX XXXXXXX" />
-            </label>
-            <label className="grid gap-2 text-sm font-extrabold text-kp-graphite">
-              Current city/country
-              <input className={inputClass} name="city" placeholder="Where are you contacting us from?" />
-            </label>
+            <KpInput
+              label="Full name"
+              name="name"
+              placeholder="Your name"
+              required
+              validation="name"
+            />
+            <KpInput
+              label="WhatsApp number"
+              name="whatsapp"
+              placeholder="03XX XXXXXXX"
+              required
+              validation="phone"
+            />
+            <KpInput
+              label="Current city/country"
+              name="city"
+              placeholder="Where are you contacting us from?"
+              required
+              validation="location"
+            />
             <KpSelect
               label="Preferred location/project"
               name="preferredProject"
               options={projectOptions}
               placeholder="Select or write your preference"
+              required
             />
-            <KpSelect label="Property type" name="propertyType" options={propertyTypeOptions} />
-            <KpSelect label="Budget range" name="budget" options={budgetOptions} placeholder="Select a range" />
-            <KpSelect label="Payment preference" name="paymentPreference" options={paymentOptions} />
-            <KpSelect label="Buying timeline" name="timeline" options={timelineOptions} />
-            <KpSelect label="Site visit" name="siteVisit" options={siteVisitOptions} />
-            <label className="col-span-2 grid gap-2 text-sm font-extrabold text-kp-graphite max-[680px]:col-span-1">
-              Additional message
-              <textarea
-                className={`${inputClass} min-h-32 resize-y`}
+            <KpSelect label="Property type" name="propertyType" options={propertyTypeOptions} required />
+            <KpSelect label="Budget range" name="budget" options={budgetOptions} placeholder="Select a range" required />
+            <KpSelect label="Payment preference" name="paymentPreference" options={paymentOptions} required />
+            <KpSelect label="Buying timeline" name="timeline" options={timelineOptions} required />
+            <KpSelect label="Site visit" name="siteVisit" options={siteVisitOptions} required />
+            <div className="col-span-2 max-[680px]:col-span-1">
+              <KpInput
+                label="Additional message"
+                multiline
                 name="message"
                 placeholder="Tell us what matters most to you"
+                validation="message"
               />
-            </label>
+            </div>
           </div>
           <button className="kp-button kp-button-accent" type="submit">
             Send My Property Enquiry

@@ -117,6 +117,7 @@ function HomeHero() {
                                 name="location"
                                 options={locationOptions}
                                 placeholder="Select a location"
+                                required
                             />
 
                             <KpSelect
@@ -124,6 +125,7 @@ function HomeHero() {
                                 label="Property type"
                                 name="propertyType"
                                 options={propertyTypeOptions}
+                                required
                             />
 
                             <KpSelect
@@ -131,6 +133,7 @@ function HomeHero() {
                                 name="budget"
                                 options={budgetOptions}
                                 placeholder="Select budget range"
+                                required
                             />
 
                             <KpSelect
@@ -138,6 +141,7 @@ function HomeHero() {
                                 label="Payment preference"
                                 name="paymentPreference"
                                 options={paymentOptions}
+                                required
                             />
                         </div>
 

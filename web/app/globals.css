@@ -237,6 +237,11 @@ p {
   line-height: 1.35;
 }
 
+.kp-required-mark {
+  color: var(--kp-danger);
+  margin-left: 0.2rem;
+}
+
 .kp-select {
   min-width: 0;
   position: relative;
@@ -268,6 +273,11 @@ p {
 .kp-select-trigger:hover,
 .kp-select-trigger[aria-expanded="true"] {
   border-color: var(--kp-ember);
+}
+
+.kp-select-trigger[data-invalid="true"] {
+  border-color: var(--kp-danger);
+  box-shadow: 0 0 0 3px rgb(166 64 70 / 16%);
 }
 
 .kp-select-placeholder {
@@ -339,6 +349,13 @@ p {
   font-size: 1.25rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.kp-select-error {
+  color: var(--kp-danger);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .kp-home-hero {
