@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/layouts/Header";
 import { KpSelect } from "@/components/ui/kp-select";
 
@@ -33,10 +34,13 @@ const paymentOptions = [
 
 function HomeHero() {
     return (
-        <section className="kp-home-hero max-[720px]:pt-3" aria-labelledby="home-hero-title">
+        <section
+            className="kp-home-hero bg-kp-limestone pt-3 pb-16 lg:bg-[radial-gradient(circle_at_7%_22%,rgb(216_111_82_/_16%),transparent_30%),linear-gradient(112deg,var(--kp-limestone)_0%,var(--kp-limestone)_58%,var(--kp-estate-plum)_58%,var(--kp-estate-plum)_100%)] lg:pt-4 lg:pb-24"
+            aria-labelledby="home-hero-title"
+        >
             <Header />
 
-            <div className="relative z-[2] mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-[minmax(0,0.94fr)_minmax(420px,0.76fr)] items-center gap-[clamp(2.5rem,6vw,5rem)] pt-[clamp(4rem,8vw,6.5rem)] max-[1080px]:grid-cols-1 max-[720px]:pt-12">
+            <div className="relative z-[2] mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 items-center gap-12 pt-12 md:w-[min(100%_-_48px,1400px)] md:gap-16 md:pt-20 lg:grid-cols-[minmax(0,0.94fr)_minmax(420px,0.76fr)] lg:gap-[clamp(2.5rem,6vw,5rem)] lg:pt-[clamp(4rem,8vw,6.5rem)]">
                 <div className="max-w-[920px]">
                     <p className="kp-label kp-marker">
                         Property guidance for Islamabad & Rawalpindi
@@ -44,7 +48,7 @@ function HomeHero() {
 
                     <h1
                         id="home-hero-title"
-                        className="mt-5 max-w-[920px] text-[clamp(3.4rem,7vw,6.25rem)] leading-[0.96] max-[720px]:text-[clamp(2.9rem,13vw,4.2rem)]"
+                        className="mt-5 max-w-[920px] text-[clamp(2.9rem,13vw,4.2rem)] leading-[0.96] md:text-[clamp(3.8rem,9vw,5.7rem)] lg:text-[clamp(4.2rem,7vw,6.5rem)]"
                     >
                         Explore Property Opportunities with Greater Clarity
                     </h1>
@@ -55,18 +59,18 @@ function HomeHero() {
                         from Kainat Properties.
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-3.5 max-[720px]:[&_.kp-button]:w-full" aria-label="Hero actions">
-                        <a className="kp-button kp-button-primary" href="#opportunities">
+                    <div className="mt-8 flex flex-wrap gap-3.5 [&_.kp-button]:w-full md:[&_.kp-button]:w-auto" aria-label="Hero actions">
+                        <Link className="kp-button kp-button-primary" href="#opportunities">
                             Explore Opportunities
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             className="kp-button kp-button-secondary"
                             href="https://wa.me/923040882985?text=Assalamualaikum%2C%20I%20want%20to%20discuss%20my%20property%20budget%20with%20Kainat%20Properties."
                             target="_blank"
                             rel="noreferrer"
                         >
                             Discuss Budget on WhatsApp
-                        </a>
+                        </Link>
                     </div>
 
                     <p className="mt-6 max-w-[620px] border-l-2 border-kp-ember pl-3.5 text-sm leading-[1.6] text-kp-stone-taupe">
@@ -75,18 +79,18 @@ function HomeHero() {
                     </p>
                 </div>
 
-                <div className="relative min-h-170 max-[1080px]:min-h-auto" aria-label="Featured project context">
-                    <div className="group relative mt-52 ml-auto aspect-square max-w-[520px] overflow-hidden rounded-3xl border border-kp-porcelain/20 shadow-(--kp-shadow-float) isolate max-[1080px]:ml-0 max-[1080px]:max-w-none">
+                <div className="relative min-h-0 lg:min-h-[680px]" aria-label="Featured project context">
+                    <div className="group isolate relative mx-auto aspect-square w-full max-w-[560px] overflow-hidden rounded-3xl border border-kp-porcelain/20 shadow-[var(--kp-shadow-float)] lg:mt-52 lg:ml-auto lg:max-w-[520px]">
                         <Image
-                            className="h-full w-full scale-[1.01] object-cover saturate-[0.9] contrast-[1.02] transition-transform duration-450 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.035]"
+                            className="h-full w-full scale-[1.01] object-cover saturate-[0.9] contrast-[1.02] transition-transform duration-[450ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:scale-[1.035]"
                             src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1400"
                             alt="Aerial-style urban development context for Islamabad and Rawalpindi property guidance."
                             width={1400}
                             height={1750}
                             priority
                         />
-                        <div className="absolute inset-0 z-1 bg-linear-to-b from-transparent from-40% to-kp-estate-plum/90" />
-                        <div className="absolute inset-x-0 bottom-0 z-2 grid gap-1 p-8 text-kp-porcelain">
+                        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent from-40% to-kp-estate-plum/90" />
+                        <div className="absolute inset-x-0 bottom-0 z-[2] grid gap-1 p-6 text-kp-porcelain md:p-8">
                             <span className="text-[0.72rem] font-extrabold tracking-[0.08em] text-kp-ember uppercase">
                                 Recent project focus
                             </span>
@@ -97,7 +101,7 @@ function HomeHero() {
                     </div>
 
                     <form
-                        className="absolute -top-22 right-20 z-3 grid w-[min(100%,630px)] max-w-[660px] translate-x-[-4%] translate-y-[7%] gap-5 rounded-[24px] border border-kp-mushroom-mist bg-kp-porcelain/95 p-[clamp(1.25rem,3vw,1.75rem)] shadow-[var(--kp-shadow-float)] max-[1080px]:relative max-[1080px]:mt-[-3rem] max-[1080px]:w-[calc(100%-2rem)] max-[1080px]:max-w-none max-[1080px]:translate-0 max-[720px]:w-full"
+                        className="relative z-[3] mx-auto mt-10 grid w-full max-w-[660px] gap-5 rounded-[24px] border border-kp-mushroom-mist bg-kp-porcelain/95 p-5 shadow-[var(--kp-shadow-float)] md:w-[calc(100%-2rem)] md:p-7 lg:absolute lg:top-[-5.5rem] lg:right-20 lg:mt-0 lg:w-[min(100%,630px)] lg:translate-x-[-4%] lg:translate-y-[7%]"
                         id="enquiry"
                     >
                         <div>
@@ -111,7 +115,7 @@ function HomeHero() {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-3.5 max-[720px]:grid-cols-1">
+                        <div className="grid grid-cols-1 gap-3.5 md:grid-cols-2">
                             <KpSelect
                                 label="Location"
                                 name="location"

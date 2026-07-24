@@ -16,7 +16,7 @@ const highlights = [
 function TrustHighlights() {
   return (
     <section className="bg-kp-limestone py-20">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-3 gap-px overflow-hidden rounded-3xl border border-kp-mushroom-mist bg-kp-mushroom-mist max-[900px]:grid-cols-1">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-px overflow-hidden rounded-3xl border border-kp-mushroom-mist bg-kp-mushroom-mist md:w-[min(100%_-_48px,1400px)] lg:grid-cols-3">
         {highlights.map((highlight) => (
           <article className="bg-kp-porcelain p-8 md:p-10" key={highlight.title}>
             <div className="mb-8 h-1.5 w-10 bg-kp-ember" />

@@ -20,8 +20,8 @@ const reasons = [
 function WhyKainat() {
   return (
     <section className="bg-kp-limestone py-24 md:py-32">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-12 gap-10">
-        <div className="col-span-5 max-[900px]:col-span-12">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-10 md:w-[min(100%_-_48px,1400px)] lg:grid-cols-12">
+        <div className="lg:col-span-5">
           <p className="kp-label kp-marker">Why Kainat Properties</p>
           <h2 className="mt-5 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-none text-kp-estate-plum">
             Property decisions deserve more than a short caption
@@ -33,7 +33,7 @@ function WhyKainat() {
           </p>
         </div>
 
-        <div className="col-span-7 grid grid-cols-2 gap-4 max-[900px]:col-span-12 max-[640px]:grid-cols-1">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:col-span-7">
           {reasons.map((reason) => (
             <article
               className="rounded-3xl border border-kp-mushroom-mist bg-kp-porcelain p-7"

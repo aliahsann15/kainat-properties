@@ -44,8 +44,8 @@ const siteVisitOptions = [
 function MainEnquiry() {
   return (
     <section className="bg-kp-limestone py-24 md:py-32" id="contact">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-12 gap-10">
-        <div className="col-span-5 max-[900px]:col-span-12">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-10 md:w-[min(100%_-_48px,1400px)] lg:grid-cols-12">
+        <div className="lg:col-span-5">
           <p className="kp-label kp-marker">Tell us what you are looking for</p>
           <h2 className="mt-5 font-serif text-[clamp(2.5rem,5vw,4.8rem)] font-semibold leading-none text-kp-estate-plum">
             A more relevant starting point, not a generic list
@@ -62,8 +62,8 @@ function MainEnquiry() {
           </p>
         </div>
 
-        <form className="col-span-7 grid gap-5 rounded-3xl border border-kp-mushroom-mist bg-kp-porcelain p-6 shadow-[var(--kp-shadow-float)] md:p-8 max-[900px]:col-span-12">
-          <div className="grid grid-cols-2 gap-4 max-[680px]:grid-cols-1">
+        <form className="grid gap-5 rounded-3xl border border-kp-mushroom-mist bg-kp-porcelain p-6 shadow-[var(--kp-shadow-float)] md:p-8 lg:col-span-7">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <KpInput
               label="Full name"
               name="name"
@@ -97,7 +97,7 @@ function MainEnquiry() {
             <KpSelect label="Payment preference" name="paymentPreference" options={paymentOptions} required />
             <KpSelect label="Buying timeline" name="timeline" options={timelineOptions} required />
             <KpSelect label="Site visit" name="siteVisit" options={siteVisitOptions} required />
-            <div className="col-span-2 max-[680px]:col-span-1">
+            <div className="md:col-span-2">
               <KpInput
                 label="Additional message"
                 multiline

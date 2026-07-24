@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const footerGroups = [
   {
     title: "Explore",
@@ -20,9 +22,9 @@ const footerGroups = [
 function Footer() {
   return (
     <footer className="bg-kp-graphite py-16 text-kp-porcelain">
-      <div className="mx-auto w-[min(100%_-_48px,1320px)]">
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-4 max-[900px]:col-span-12">
+      <div className="mx-auto w-[min(100%_-_24px,1400px)] md:w-[min(100%_-_48px,1400px)]">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
             <div className="grid leading-none">
               <span className="font-serif text-3xl font-semibold">Kainat</span>
               <strong className="mt-2 text-xs font-extrabold tracking-[0.2em] uppercase">
@@ -42,7 +44,7 @@ function Footer() {
             </p>
           </div>
 
-          <div className="col-span-8 grid grid-cols-4 gap-6 max-[900px]:col-span-12 max-[680px]:grid-cols-2">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:col-span-8">
             {footerGroups.map((group) => (
               <div key={group.title}>
                 <h2 className="inline-flex w-fit pb-1 font-sans text-sm font-extrabold tracking-[0.08em] text-kp-ember! uppercase">
@@ -51,9 +53,9 @@ function Footer() {
                 <ul className="mt-5 grid gap-3 text-sm text-kp-porcelain/70">
                   {group.links.map((link) => (
                     <li key={link}>
-                      <a className="no-underline transition-colors duration-200 hover:text-kp-porcelain" href="#contact">
+                      <Link className="no-underline transition-colors duration-200 hover:text-kp-porcelain" href="#contact">
                         {link}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,14 +1,14 @@
 function CredibilitySection() {
   return (
     <section className="bg-kp-rose-quartz py-24 md:py-32">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-12 gap-10">
-        <div className="col-span-5 max-[900px]:col-span-12">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-10 md:w-[min(100%_-_48px,1400px)] lg:grid-cols-12">
+        <div className="lg:col-span-5">
           <p className="kp-label kp-marker">Growing through content, consistency and community</p>
           <h2 className="mt-5 font-serif text-[clamp(2.5rem,5vw,4.6rem)] font-semibold leading-none text-kp-estate-plum">
             Visibility built around education and project coverage
           </h2>
         </div>
-        <div className="col-span-7 max-[900px]:col-span-12">
+        <div className="lg:col-span-7">
           <p className="text-xl leading-9 text-kp-graphite">
             Kainat Properties is building visibility through real-estate
             education, project coverage and collaborations within Pakistan&apos;s

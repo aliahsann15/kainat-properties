@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const videos = [
   "Faisal Town Phase 2 — Latest Development, Delivery and Investment Questions",
   "Faisal Hills — Complete Tour, Block Overview and Investment Guide",
@@ -7,8 +9,8 @@ const videos = [
 function VideosInsights() {
   return (
     <section className="bg-kp-estate-plum py-24 text-kp-porcelain md:py-32" id="videos">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-12 gap-10">
-        <div className="col-span-5 max-[900px]:col-span-12">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-10 md:w-[min(100%_-_48px,1400px)] lg:grid-cols-12">
+        <div className="lg:col-span-5">
           <p className="kp-label kp-marker">Watch the market before you enter it</p>
           <h2 className="mt-5 font-serif text-[clamp(2.6rem,5vw,4.8rem)] font-semibold leading-none text-kp-porcelain!">
             Project tours, development updates and practical discussions
@@ -18,19 +20,19 @@ function VideosInsights() {
             directly from learning to a relevant enquiry.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a className="kp-button kp-button-accent" href="#videos">
+            <Link className="kp-button kp-button-accent" href="#videos">
               Watch More Property Videos
-            </a>
-            <a className="kp-button border border-kp-porcelain/40 text-kp-porcelain" href="#social">
+            </Link>
+            <Link className="kp-button border border-kp-porcelain/40 text-kp-porcelain" href="#social">
               Subscribe to Kainat Properties on YouTube
-            </a>
+            </Link>
           </div>
         </div>
 
-        <div className="col-span-7 grid gap-4 max-[900px]:col-span-12">
+        <div className="grid gap-4 lg:col-span-7">
           {videos.map((video) => (
             <article
-              className="group grid grid-cols-[120px_1fr] items-center gap-5 rounded-3xl border border-kp-porcelain/15 bg-kp-porcelain/8 p-4 max-[640px]:grid-cols-1"
+              className="group grid grid-cols-1 items-center gap-5 rounded-3xl border border-kp-porcelain/15 bg-kp-porcelain/8 p-4 md:grid-cols-[120px_1fr]"
               key={video}
             >
               <div className="flex aspect-video items-center justify-center rounded-2xl bg-kp-porcelain text-kp-estate-plum">

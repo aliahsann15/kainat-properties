@@ -34,14 +34,14 @@ const faqs = [
 function FaqSection() {
   return (
     <section className="bg-kp-limestone py-24 md:py-32">
-      <div className="mx-auto grid w-[min(100%_-_48px,1320px)] grid-cols-12 gap-10">
-        <div className="col-span-4 max-[900px]:col-span-12">
+      <div className="mx-auto grid w-[min(100%_-_24px,1400px)] grid-cols-1 gap-10 md:w-[min(100%_-_48px,1400px)] lg:grid-cols-12">
+        <div className="lg:col-span-4">
           <p className="kp-label kp-marker">Frequently asked questions</p>
           <h2 className="mt-5 font-serif text-[clamp(2.5rem,5vw,4.4rem)] font-semibold leading-none text-kp-estate-plum">
             Verify the changing details before moving forward
           </h2>
         </div>
-        <div className="col-span-8 grid gap-3 max-[900px]:col-span-12">
+        <div className="grid gap-3 lg:col-span-8">
           {faqs.map((faq) => (
             <details className="group rounded-3xl border border-kp-mushroom-mist bg-kp-porcelain p-6" key={faq.question}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-lg font-extrabold text-kp-graphite">

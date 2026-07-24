@@ -3,7 +3,7 @@ import Link from "next/link";
 function Header() {
   return (
     <header
-      className="relative z-[3] mx-auto grid min-h-[72px] w-[min(100%_-_48px,1320px)] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-[18px] border border-kp-mushroom-mist/75 bg-kp-porcelain/90 py-3 pr-3.5 pl-5 shadow-[0_18px_48px_rgb(42_25_49_/_8%)] max-[1080px]:grid-cols-[1fr_auto] max-[720px]:min-h-16 max-[720px]:rounded-[14px]"
+      className="relative z-[3] mx-auto grid min-h-16 w-[min(100%_-_24px,1400px)] grid-cols-[1fr_auto] items-center gap-4 rounded-[14px] border border-kp-mushroom-mist/75 bg-kp-porcelain/90 py-3 pr-3.5 pl-5 shadow-[0_18px_48px_rgb(42_25_49_/_8%)] md:w-[min(100%_-_48px,1400px)] lg:min-h-[72px] lg:grid-cols-[auto_1fr_auto] lg:rounded-[18px]"
       aria-label="Primary"
     >
       <Link
@@ -18,41 +18,41 @@ function Header() {
       </Link>
 
       <nav
-        className="flex flex-wrap items-center justify-center gap-[clamp(1rem,2vw,2rem)] text-sm font-bold text-kp-stone-taupe max-[1080px]:hidden"
+        className="hidden flex-wrap items-center justify-center gap-[clamp(1rem,2vw,2rem)] text-sm font-bold text-kp-stone-taupe lg:flex"
         aria-label="Main navigation"
       >
-        <a
+        <Link
           className="no-underline transition-colors duration-200 hover:text-kp-estate-plum"
           href="#properties"
         >
           Properties
-        </a>
-        <a
+        </Link>
+        <Link
           className="no-underline transition-colors duration-200 hover:text-kp-estate-plum"
           href="#projects"
         >
           Projects
-        </a>
-        <a
+        </Link>
+        <Link
           className="no-underline transition-colors duration-200 hover:text-kp-estate-plum"
           href="#videos"
         >
           Videos & Insights
-        </a>
-        <a
+        </Link>
+        <Link
           className="no-underline transition-colors duration-200 hover:text-kp-estate-plum"
           href="#about"
         >
           About Kainat
-        </a>
+        </Link>
       </nav>
 
-      <a
-        className="kp-button kp-button-primary min-h-[46px] px-4 max-[720px]:hidden"
+      <Link
+        className="kp-button kp-button-primary hidden text-sm md:text-base min-h-11.5 px-4 md:inline-flex"
         href="#enquiry"
       >
         Discuss Your Investment
-      </a>
+      </Link>
     </header>
   );
 }
