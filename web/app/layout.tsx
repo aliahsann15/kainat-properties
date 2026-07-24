@@ -15,9 +15,18 @@ const displayFont = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Kainat Properties",
+  title:
+    "Kainat Properties | Property & Investment Opportunities in Islamabad and Rawalpindi",
   description:
-    "Property and investment opportunities across Islamabad and Rawalpindi with Kainat Properties.",
+    "Explore property and investment opportunities across Islamabad and Rawalpindi with Kainat Properties. View project insights, site-visit updates and submit a structured enquiry for current prices and availability.",
+  openGraph: {
+    title: "Explore Property Opportunities with Kainat Properties",
+    description:
+      "Clear project information, on-ground insights and direct property guidance for buyers and investors across Islamabad and Rawalpindi.",
+    url: "/",
+    siteName: "Kainat Properties",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
